@@ -29,33 +29,33 @@ export const guest = (() => {
     /**
      * @returns {void}
      */
-    const countDownDate = () => {
-        const count = (new Date(document.body.getAttribute('data-time').replace(' ', 'T'))).getTime();
+        const countDownDate = () => {
+            const count = (new Date(document.body.getAttribute('data-time').replace(' ', 'T'))).getTime();
 
-        /**
-         * @param {number} num
-         * @returns {string}
-         */
-        const pad = (num) => num < 10 ? `0${num}` : `${num}`;
+            /**
+             * @param {number} num
+             * @returns {string}
+             */
+            const pad = (num) => num < 10 ? `0${num}` : `${num}`;
 
-        const day = document.getElementById('day');
-        const hour = document.getElementById('hour');
-        const minute = document.getElementById('minute');
-        const second = document.getElementById('second');
+            const day = document.getElementById('day');
+            const hour = document.getElementById('hour');
+            const minute = document.getElementById('minute');
+            const second = document.getElementById('second');
 
-        const updateCountdown = () => {
-            const distance = Math.abs(count - Date.now());
+            const updateCountdown = () => {
+                const distance = Math.abs(count - Date.now());
 
-            day.textContent = pad(Math.floor(distance / (1000 * 60 * 60 * 24)));
-            hour.textContent = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            minute.textContent = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            second.textContent = pad(Math.floor((distance % (1000 * 60)) / 1000));
+                day.textContent = pad(Math.floor(distance / (1000 * 60 * 60 * 24)));
+                hour.textContent = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                minute.textContent = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+                second.textContent = pad(Math.floor((distance % (1000 * 60)) / 1000));
 
-            util.timeOut(updateCountdown, 1000 - (Date.now() % 1000));
+                util.timeOut(updateCountdown, 1000 - (Date.now() % 1000));
+            };
+
+            util.timeOut(updateCountdown);
         };
-
-        util.timeOut(updateCountdown);
-    };
 
     /**
      * @returns {void}
@@ -255,10 +255,10 @@ export const guest = (() => {
         const url = new URL('https://calendar.google.com/calendar/render');
         const data = new URLSearchParams({
             action: 'TEMPLATE',
-            text: 'Lễ cưới của Wahyu and Riski',
-            dates: `${formatDate('2023-03-15 10:00')}/${formatDate('2023-03-15 11:00')}`,
-            details: 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami. Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.',
-            location: 'RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.',
+            text: 'Lễ cưới của Xuân Hiếu và Phương Thảo',
+            dates: `${formatDate('2025-11-01 10:00')}/${formatDate('2025-11-01 11:00')}`,
+            details: 'Với tất cả sự kính trọng, chúng tôi trân trọng kính mời bạn đến tham dự lễ cưới của chúng tôi. Xin chân thành cảm ơn sự quan tâm và những lời chúc phúc của bạn — đó là niềm hạnh phúc và vinh dự lớn lao đối với chúng tôi.',
+            location: 'Khối 1 Phúc Thọ phường Vinh Lộc tỉnh Nghệ An',
             ctz: config.get('tz'),
         });
 
