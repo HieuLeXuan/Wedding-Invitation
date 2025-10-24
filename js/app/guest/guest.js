@@ -3,7 +3,7 @@ import { image } from './image.js';
 import { audio } from './audio.js';
 import { progress } from './progress.js';
 import { util } from '../../common/util.js';
-import { bs } from '../../libs/bootstrap.js';
+// import { bs } from '../../libs/bootstrap.js';
 import { loader } from '../../libs/loader.js';
 import { theme } from '../../common/theme.js';
 import { lang } from '../../common/language.js';
@@ -188,7 +188,7 @@ export const guest = (() => {
         i.src = img.src;
         i.width = img.width;
         i.height = img.height;
-        bs.modal('modal-image').show();
+        // bs.modal('modal-image').show();
     };
 
     /**
@@ -334,7 +334,7 @@ export const guest = (() => {
 
         window.addEventListener('resize', util.debounce(slide));
         document.addEventListener('undangan.progress.done', () => booting());
-        document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
+        // document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
         document.getElementById('button-modal-download').addEventListener('click', (e) => {
             img.download(e.currentTarget.getAttribute('data-src'));
         });
